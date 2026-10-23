@@ -1,42 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize AOS Scroll Animation
-  AOS.init({
-    duration: 800,
-    easing: 'ease-in-out',
-    once: true,
-    offset: 100
-  });
-
-  // Form Handling and Validation
-  const form = document.getElementById('websiteRequestForm');
-  const nameInput = document.getElementById('fullName');
-  const emailInput = document.getElementById('email');
-  const nameError = document.getElementById('nameError');
-  const emailError = document.getElementById('emailError');
-  const formSuccess = document.getElementById('formSuccess');
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    let isValid = true;
-
-    // Validate Name (Mandatory)
-    if (!nameInput.value.trim()) {
-      showError(nameInput, nameError);
-      isValid = false;
-    } else {
-      clearError(nameInput, nameError);
-    }
-
-    // Validate Email (Mandatory)
-    if (!emailInput.value.trim() || !validateEmail(emailInput.value.trim())) {
-      showError(emailInput, emailError);
-      isValid = false;
-    } else {
-      clearError(emailInput, emailError);
-    }
-
-    // If valid, simulate submission
+// If valid, send the data to your Vercel backend
     if (isValid) {
       const formData = {
         fullName: nameInput.value.trim(),
@@ -45,26 +7,24 @@ document.addEventListener('DOMContentLoaded', () => {
         additionalInfo: document.getElementById('additionalInfo').value.trim() || 'None'
       };
 
-      console.log('Submitted Request Data:', formData);
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
 
-      // Hide Form and Show Success Message
-      form.classList.add('hidden');
-      formSuccess.classList.remove('hidden');
+        const result = await response.json();
+
+        if (response.ok) {
+          // Hide Form and Show Success Message
+          form.classList.add('hidden');
+          formSuccess.classList.remove('hidden');
+        } else {
+          alert('Error sending request: ' + (result.error || 'Please try again.'));
+        }
+      } catch (err) {
+        console.error('Submission error:', err);
+        alert('Network error. Please try again later.');
+      }
     }
-  });
-
-  function showError(inputElement, errorElement) {
-    inputElement.classList.add('input-error');
-    errorElement.style.display = 'block';
-  }
-
-  function clearError(inputElement, errorElement) {
-    inputElement.classList.remove('input-error');
-    errorElement.style.display = 'none';
-  }
-
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
-});
