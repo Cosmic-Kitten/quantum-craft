@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum Craft | Custom Webpages by Quantum Studios</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation Library CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">Quantum<span>Craft</span></a>
+      <ul class="nav-links">
+        <li><a href="#how-it-works">How We Work</a></li>
+        <li><a href="#open-source">Open Source</a></li>
+        <li><a href="#request" class="btn btn-primary">Request Website</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <div class="badge">A Project by Quantum Studios</div>
+      <h1>Tailor-Made Websites. Built in the Open.</h1>
+      <p>We craft high-performance, bespoke web experiences designed specifically for your needs—completely open source and transparent from start to finish.</p>
+      <a href="#request" class="btn btn-large btn-primary">Start Your Custom Project</a>
+    </div>
+  </header>
+
+  <!-- Section 1: How We Work -->
+  <section id="how-it-works" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>How We Work</h2>
+        <p>A simple, transparent process built for custom web development.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Step 1 -->
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-step">01</div>
+          <h3>Submit Request</h3>
+          <p>Fill out our short request form with your basic details and project vision to get started.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-step">02</div>
+          <h3>Custom Development</h3>
+          <p>Quantum Studios engineers build your custom webpage from scratch using modern web standards.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-step">03</div>
+          <h3>Deploy & Share</h3>
+          <p>Your site goes live, complete with accessible source code so you always maintain full ownership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Open Source Philosophy -->
+  <section id="open-source" class="section section-alt">
+    <div class="container">
+      <div class="grid grid-2 align-center">
+        <div data-aos="fade-right">
+          <div class="badge">Open Source First</div>
+          <h2>Fully Open Source Custom Development</h2>
+          <p>At Quantum Studios, we believe transparency drives better quality and trust. Every site we build is open source by default.</p>
+          <ul class="feature-list">
+            <li><strong>Full Ownership:</strong> You have complete access to inspect, fork, or host your code anywhere.</li>
+            <li><strong>Community Audited:</strong> Open source architecture guarantees high standards for performance and security.</li>
+            <li><strong>No Vendor Lock-In:</strong> You are never trapped in a proprietary ecosystem.</li>
+          </ul>
+        </div>
+        <div class="code-preview" data-aos="fade-left">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="code-title">quantum-studios / custom-site</span>
+          </div>
+          <pre><code><span class="code-keyword">const</span> quantumProject = {
+  client: <span class="code-string">"Your Vision"</span>,
+  customBuilt: <span class="code-bool">true</span>,
+  openSource: <span class="code-bool">true</span>,
+  craftedBy: <span class="code-string">"Quantum Studios"</span>
+};
+
+<span class="code-keyword">function</span> <span class="code-func">deployWebsite</span>() {
+  <span class="code-keyword">return</span> <span class="code-string">"High performance & complete freedom."</span>;
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Project Request Form -->
+  <section id="request" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Request a Custom Website</h2>
+        <p>Tell us about your project and we’ll get back to you to start crafting your site.</p>
+      </div>
+
+      <div class="form-container" data-aos="zoom-in" data-aos-duration="800">
+        <form id="websiteRequestForm" novalidate>
+          
+          <!-- Mandatory Name -->
+          <div class="form-group">
+            <label for="fullName">Full Name <span class="required">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required />
+            <span class="error-message" id="nameError">Please enter your name.</span>
+          </div>
+
+          <!-- Mandatory Email -->
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+            <span class="error-message" id="emailError">Please enter a valid email address.</span>
+          </div>
+
+          <!-- Optional Phone -->
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="optional">(Optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" />
+          </div>
+
+          <!-- Optional Additional Info -->
+          <div class="form-group">
+            <label for="additionalInfo">Additional Information <span class="optional">(Optional)</span></label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Tell us about your target audience, design preferences, or specific feature requirements..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Submit Website Request</button>
+        </form>
+
+        <!-- Success Feedback Message -->
+        <div id="formSuccess" class="form-success hidden">
+          <h3>Request Received!</h3>
+          <p>Thank you for reaching out to Quantum Studios. We will review your request and contact you soon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; Quantum Craft by <strong>Quantum Studios</strong>. Open Source Project.</p>
+    </div>
+  </footer>
+
+  <!-- AOS Scroll Animation Script -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
