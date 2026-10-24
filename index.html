@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   
   <!-- AOS Animation Library CSS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -281,6 +281,104 @@
       font-weight: bold;
     }
 
+    /* --- Interactive Quote Calculator --- */
+    .calculator-box {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .calc-options {
+      display: grid;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .calc-option-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-color);
+      padding: 12px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .calc-option-label:hover {
+      border-color: var(--primary);
+    }
+
+    .calc-option-label input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .calc-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-color);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      margin-top: 20px;
+    }
+
+    .calc-total h4 {
+      font-size: 1.1rem;
+    }
+
+    .calc-price-display {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: var(--font-mono);
+    }
+
+    /* --- FAQ Accordion --- */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      gap: 15px;
+    }
+
+    .faq-item {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 0 20px 20px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* --- Code Preview & Forms --- */
     .feature-list {
       list-style: none;
       margin-top: 20px;
@@ -340,7 +438,6 @@
     .code-bool { color: #79c0ff; }
     .code-func { color: #d2a8ff; }
 
-    /* --- Form Elements --- */
     .form-container {
       max-width: 550px;
       margin: 0 auto;
@@ -410,11 +507,28 @@
 
     /* --- Footer --- */
     .footer {
-      padding: 35px 0;
+      padding: 50px 0;
       border-top: 1px solid var(--border-color);
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-main);
     }
 
     @media (max-width: 768px) {
@@ -434,6 +548,8 @@
         <li><a href="#how-it-works">How We Work</a></li>
         <li><a href="#open-source">Open Source</a></li>
         <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#request" class="btn btn-primary">Request Website</a></li>
       </ul>
     </div>
@@ -528,7 +644,6 @@
       </div>
 
       <div class="grid grid-3">
-        <!-- Tier 1 -->
         <div class="card" data-aos="fade-up" data-aos-delay="100">
           <div>
             <h3>Landing Page</h3>
@@ -544,7 +659,6 @@
           <a href="#request" class="btn btn-primary btn-full" style="margin-top: 20px;">Choose Landing</a>
         </div>
 
-        <!-- Tier 2 (Featured) -->
         <div class="card featured" data-aos="fade-up" data-aos-delay="200">
           <div>
             <div class="badge" style="margin-bottom: 10px;">Most Popular</div>
@@ -561,7 +675,6 @@
           <a href="#request" class="btn btn-primary btn-full" style="margin-top: 20px;">Choose Business</a>
         </div>
 
-        <!-- Tier 3 -->
         <div class="card" data-aos="fade-up" data-aos-delay="300">
           <div>
             <h3>Bespoke Web App</h3>
@@ -580,7 +693,71 @@
     </div>
   </section>
 
-  <!-- Section 4: Project Request Form -->
+  <!-- Section 4: Interactive Quote Calculator -->
+  <section id="calculator" class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Estimate Your Project</h2>
+        <p>Select the features you need to generate a real-time rough cost estimate.</p>
+      </div>
+
+      <div class="calculator-box" data-aos="zoom-in">
+        <div class="calc-options">
+          <label class="calc-option-label">
+            <input type="checkbox" class="calc-feat" value="150" checked disabled> Base Custom Layout ($150)
+          </label>
+          <label class="calc-option-label">
+            <input type="checkbox" class="calc-feat" value="100" id="featMulti"> Multi-page routing (+ $100)
+          </label>
+          <label class="calc-option-label">
+            <input type="checkbox" class="calc-feat" value="200" id="featAnim"> Advanced Scroll Animations & Effects (+ $200)
+          </label>
+          <label class="calc-option-label">
+            <input type="checkbox" class="calc-feat" value="150" id="featForm"> Backend Form & Email Notifications (+ $150)
+          </label>
+          <label class="calc-option-label">
+            <input type="checkbox" class="calc-feat" value="300" id="featApi"> External API / Database Integration (+ $300)
+          </label>
+        </div>
+
+        <div class="calc-total">
+          <h4>Estimated Starting Investment:</h4>
+          <div class="calc-price-display" id="calcTotalDisplay">$150</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: FAQ Accordion -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about building with Quantum Studios.</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item" data-aos="fade-up">
+          <div class="faq-question">What does "Open Source First" mean for my website? <span class="faq-arrow">+</span></div>
+          <div class="faq-answer">It means you own 100% of the code. We build your site in a clean, transparent repository structure without proprietary page-builder lock-ins, giving you complete freedom to host, fork, or modify your application whenever you choose.</div>
+        </div>
+        <div class="faq-item" data-aos="fade-up">
+          <div class="faq-question">How long does a custom build typically take? <span class="faq-arrow">+</span></div>
+          <div class="faq-answer">Landing pages are usually delivered within 3 to 5 business days. Full multi-page business sites take around 1 to 2 weeks, depending on asset availability and specific design requirements.</div>
+        </div>
+        <div class="faq-item" data-aos="fade-up">
+          <div class="faq-question">Where will my website be hosted? <span class="faq-arrow">+</span></div>
+          <div class="faq-answer">We deploy websites seamlessly onto high-performance cloud providers like Vercel or Netlify, ensuring blistering load speeds, free SSL certificates, and global edge caching out of the box.</div>
+        </div>
+        <div class="faq-item" data-aos="fade-up">
+          <div class="faq-question">How do I receive project inquiry notifications? <span class="faq-arrow">+</span></div>
+          <div class="faq-answer">We integrate secure direct notification handlers (such as Web3Forms or custom Vercel endpoints) directly into your contact form so emails hit your inbox instantly upon submission.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Project Request Form -->
   <section id="request" class="section section-alt">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
@@ -589,7 +766,7 @@
       </div>
 
       <div class="htp" data-aos="fade-up" data-aos-duration="1000">
-        <div class="badge">--Quantum Craft Version 4.56--</div>
+        <div class="badge">--Quantum Craft Version 4.58--</div>
       </div>
 
       <div class="form-container" data-aos="zoom-in" data-aos-duration="800">
@@ -649,8 +826,15 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-content">
-      <p>&copy; Quantum Craft by <strong>Quantum Studios</strong>. Open Source Project.</p>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#how-it-works">How We Work</a>
+        <a href="#open-source">Open Source</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <p>&copy; 2026 Quantum Craft by <strong>Quantum Studios</strong>. All open source code released under MIT license.</p>
     </div>
   </footer>
 
@@ -665,6 +849,35 @@
         easing: 'ease-in-out',
         once: true,
         offset: 80
+      });
+
+      // Interactive Quote Calculator Logic
+      const checkboxes = document.querySelectorAll('.calc-feat');
+      const totalDisplay = document.getElementById('calcTotalDisplay');
+
+      checkboxes.forEach(box => {
+        box.addEventListener('change', () => {
+          let total = 150; // base price
+          checkboxes.forEach(cb => {
+            if (cb.checked) {
+              total += parseInt(cb.value);
+            }
+          });
+          totalDisplay.textContent = '$' + total;
+        });
+      });
+
+      // FAQ Accordion Toggle
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => i.classList.remove('active'));
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
       });
 
       // Handle Form Submission smoothly via JavaScript
