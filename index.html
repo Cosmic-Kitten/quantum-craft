@@ -1113,4 +1113,33 @@
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
         submitBtn.textContent = 'Sending...';
-        submitBtn.disabled =
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            form.classList.add('hidden');
+            successDiv.classList.remove('hidden');
+          } else {
+            alert('Something went wrong. Please try again.');
+            submitBtn.textContent = 'Submit Website Request';
+            submitBtn.disabled = false;
+          }
+        } catch (error) {
+          alert('Network error. Please check your connection.');
+          submitBtn.textContent = 'Submit Website Request';
+          submitBtn.disabled = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
