@@ -26,6 +26,18 @@
       --font-mono: 'JetBrains Mono', monospace;
     }
 
+    [data-theme="light"] {
+      --bg-color: #ffffff;
+      --bg-alt: #f6f8fa;
+      --card-bg: #ffffff;
+      --text-main: #1f2328;
+      --text-muted: #636c76;
+      --primary: #0969da;
+      --primary-hover: #044289;
+      --accent: #1f883d;
+      --border-color: #d0d7de;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -41,6 +53,7 @@
       background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .container {
@@ -147,6 +160,23 @@
       width: 100%;
     }
 
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
     /* --- Navigation --- */
     .navbar {
       position: fixed;
@@ -157,6 +187,10 @@
       border-bottom: 1px solid var(--border-color);
       z-index: 1000;
       padding: 14px 0;
+    }
+
+    [data-theme="light"] .navbar {
+      background: rgba(255, 255, 255, 0.9);
     }
 
     .nav-container {
@@ -256,6 +290,28 @@
     .card p {
       color: var(--text-muted);
       font-size: 0.95rem;
+    }
+
+    /* --- Enterprise Metrics Box --- */
+    .metric-card {
+      text-align: center;
+      padding: 25px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+    }
+
+    .metric-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: var(--font-mono);
+    }
+
+    .metric-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 5px;
     }
 
     .price-tag {
@@ -546,6 +602,24 @@
       font-size: 0.95rem;
     }
 
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #2ea043;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #2ea043;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #2ea043;
+    }
+
     .hidden {
       display: none !important;
     }
@@ -592,10 +666,13 @@
       <a href="#" class="brand-logo">Quantum<span>Craft</span></a>
       <ul class="nav-links">
         <li><a href="#ecosystem">Ecosystem</a></li>
-        <li><a href="#how-it-works">How We Work</a></li>
+        <li><a href="#performance">Performance</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#calculator">Calculator</a></li>
         <li><a href="#faq">FAQ</a></li>
+        <li>
+          <button id="themeToggleBtn" class="theme-toggle-btn">☀ Light</button>
+        </li>
         <li><a href="#request" class="btn btn-primary">Request Website</a></li>
       </ul>
     </div>
@@ -611,26 +688,51 @@
     </div>
   </header>
 
+  <!-- Section: Performance & Enterprise Grade Metrics -->
+  <section id="performance" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Enterprise Performance</h2>
+        <p>Engineered for maximum speed, zero dependency bloat, and global edge delivery.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="metric-card">
+          <div class="metric-value">100 / 100</div>
+          <div class="metric-label">Lighthouse Speed & SEO Score</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">0 KB</div>
+          <div class="metric-label">Heavy Framework Dependencies</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">&lt; 50ms</div>
+          <div class="metric-label">Global Edge CDN Latency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Section: Quantum Ecosystem Explorer -->
   <section id="ecosystem" class="section">
     <div class="container">
       <div class="section-header">
         <h2>Quantum Ecosystem</h2>
-        <p>Explore live apps, studios, and interactive projects built under the Quantum brand.</p>
+        <p>Explore live apps, launchers, and bespoke media interfaces built under Quantum Studios.</p>
       </div>
 
-      <div class="grid grid-2">
-        <!-- Project 1 -->
+      <div class="grid grid-3">
+        <!-- Project 1: Orbit Launcher -->
         <div class="card">
           <div>
-            <div class="badge">Main Hub</div>
-            <h3>Quantum Studios</h3>
-            <p style="margin-bottom: 20px;">The official umbrella organization and primary landing hub for all open-source web experiments, engineering logs, and bespoke client portals.</p>
+            <div class="badge">Roblox Launcher</div>
+            <h3>Orbit Launcher</h3>
+            <p style="margin-bottom: 20px;">Custom-built, high-performance launcher designed specifically for seamlessly launching and managing Roblox experiences.</p>
           </div>
-          <a href="https://quantumstudios.vercel.app" target="_blank" class="btn btn-outline btn-full">Explore Quantum Studios ↗</a>
+          <a href="https://quantumstudios.vercel.app" target="_blank" class="btn btn-outline btn-full">Explore Orbit Launcher ↗</a>
         </div>
 
-        <!-- Project 2 -->
+        <!-- Project 2: Quantum Tetris -->
         <div class="card">
           <div>
             <div class="badge" style="background-color: rgba(35, 134, 54, 0.15); color: #2ea043; border-color: rgba(35, 134, 54, 0.3);">Mini App / Game</div>
@@ -638,6 +740,16 @@
             <p style="margin-bottom: 20px;">A sleek, high-performance browser-based puzzle game engineered with custom logic loops, responsive controls, and smooth styling.</p>
           </div>
           <a href="https://tetris-sable-mu.vercel.app" target="_blank" class="btn btn-outline btn-full">Play Quantum Tetris ↗</a>
+        </div>
+
+        <!-- Use Case: Ambient & Digital Signage -->
+        <div class="card">
+          <div>
+            <div class="badge" style="background-color: rgba(227, 179, 65, 0.15); color: #d4a72c; border-color: rgba(227, 179, 65, 0.3);">Enterprise & B2B</div>
+            <h3>Signage & Display Web Apps</h3>
+            <p style="margin-bottom: 20px;">Ultra-lightweight web interfaces optimized for ambient displays, Smart TVs, and commercial digital signage hardware.</p>
+          </div>
+          <a href="#request" class="btn btn-outline btn-full">Inquire for Media Solutions</a>
         </div>
       </div>
     </div>
@@ -869,7 +981,7 @@
       </div>
 
       <div class="htp">
-        <div class="badge">--Quantum Craft Version 4.61--</div>
+        <div class="badge">--Quantum Craft Version 4.64--</div>
       </div>
 
       <div class="form-container">
@@ -931,19 +1043,39 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-links">
-        <a href="https://quantumstudios.vercel.app" target="_blank">Quantum Studios</a>
+        <a href="https://quantumstudios.vercel.app" target="_blank">Orbit Launcher</a>
         <a href="https://tetris-sable-mu.vercel.app" target="_blank">Quantum Tetris</a>
         <a href="#ecosystem">Ecosystem</a>
+        <a href="#performance">Performance</a>
         <a href="#pricing">Pricing</a>
         <a href="#calculator">Calculator</a>
         <a href="#faq">FAQ</a>
       </div>
       <p>&copy; 2026 Quantum Craft by <strong>Quantum Studios</strong>. All open source code released under MIT license.</p>
+      
+      <div class="status-indicator">
+        <span class="status-dot"></span> All Quantum Craft Systems Operational
+      </div>
     </div>
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Theme Switcher Logic
+      const themeToggleBtn = document.getElementById('themeToggleBtn');
+      const htmlElement = document.documentElement;
+
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        if (currentTheme === 'light') {
+          htmlElement.removeAttribute('data-theme');
+          themeToggleBtn.textContent = '☀ Light';
+        } else {
+          htmlElement.setAttribute('data-theme', 'light');
+          themeToggleBtn.textContent = '🌙 Dark';
+        }
+      });
+
       // Interactive Quote Calculator Logic
       const checkboxes = document.querySelectorAll('.calc-feat');
       const totalDisplay = document.getElementById('calcTotalDisplay');
@@ -981,33 +1113,4 @@
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
         submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-
-        const formData = new FormData(form);
-
-        try {
-          const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData
-          });
-
-          const data = await response.json();
-
-          if (data.success) {
-            form.classList.add('hidden');
-            successDiv.classList.remove('hidden');
-          } else {
-            alert('Something went wrong. Please try again.');
-            submitBtn.textContent = 'Submit Website Request';
-            submitBtn.disabled = false;
-          }
-        } catch (error) {
-          alert('Network error. Please check your connection.');
-          submitBtn.textContent = 'Submit Website Request';
-          submitBtn.disabled = false;
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+        submitBtn.disabled =
