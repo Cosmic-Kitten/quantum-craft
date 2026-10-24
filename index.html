@@ -102,10 +102,11 @@
       margin-bottom: 16px;
       border: 1px solid rgba(88, 166, 255, 0.3);
     }
-    .htpp {
-      padding: 160px 0 80px;
+
+    .htp {
+      padding: 20px 0 30px;
       text-align: center;
-      
+    }
 
     .btn {
       display: inline-block;
@@ -206,7 +207,7 @@
       margin: 0 auto 30px;
     }
 
-    /* --- Cards & Features --- */
+    /* --- Cards & Pricing --- */
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
@@ -214,11 +215,19 @@
       border-radius: 8px;
       position: relative;
       transition: transform 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .card:hover {
       transform: translateY(-4px);
       border-color: var(--primary);
+    }
+
+    .card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(88, 166, 255, 0.1);
     }
 
     .card-step {
@@ -237,6 +246,39 @@
     .card p {
       color: var(--text-muted);
       font-size: 0.95rem;
+    }
+
+    .price-tag {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 15px 0;
+    }
+
+    .price-tag span {
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: var(--text-muted);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .pricing-features li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pricing-features li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: bold;
     }
 
     .feature-list {
@@ -329,7 +371,7 @@
       font-size: 0.8rem;
     }
 
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 11px 14px;
       background-color: var(--bg-color);
@@ -341,7 +383,7 @@
       transition: border-color 0.2s;
     }
 
-    input:focus, textarea:focus {
+    input:focus, textarea:focus, select:focus {
       outline: none;
       border-color: var(--primary);
     }
@@ -391,6 +433,7 @@
       <ul class="nav-links">
         <li><a href="#how-it-works">How We Work</a></li>
         <li><a href="#open-source">Open Source</a></li>
+        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#request" class="btn btn-primary">Request Website</a></li>
       </ul>
     </div>
@@ -416,19 +459,25 @@
 
       <div class="grid grid-3">
         <div class="card" data-aos="fade-up" data-aos-delay="100">
-          <div class="card-step">01</div>
-          <h3>Submit Request</h3>
-          <p>Fill out our short request form with your basic details and project vision to get started.</p>
+          <div>
+            <div class="card-step">01</div>
+            <h3>Submit Request</h3>
+            <p>Fill out our short request form with your project tier and vision to get started.</p>
+          </div>
         </div>
         <div class="card" data-aos="fade-up" data-aos-delay="200">
-          <div class="card-step">02</div>
-          <h3>Custom Development</h3>
-          <p>Quantum Studios engineers build your custom webpage from scratch using modern web standards.</p>
+          <div>
+            <div class="card-step">02</div>
+            <h3>Custom Development</h3>
+            <p>Quantum Studios engineers build your custom webpage from scratch using modern standards.</p>
+          </div>
         </div>
         <div class="card" data-aos="fade-up" data-aos-delay="300">
-          <div class="card-step">03</div>
-          <h3>Deploy & Share</h3>
-          <p>Your site goes live, complete with accessible source code so you always maintain full ownership.</p>
+          <div>
+            <div class="card-step">03</div>
+            <h3>Deploy & Share</h3>
+            <p>Your site goes live, complete with accessible source code so you always maintain full ownership.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -470,11 +519,79 @@
     </div>
   </section>
 
-  <!-- Section 3: Project Request Form -->
-  <header class="htpp">
-        <div class="container hero-content" data-aos="fade-up" data-aos-duration="1000">
-      <div class="badge">--Quantum Craft Version 4.56--</div>
+  <!-- Section 3: Starting Prices & Tiers -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Starting Prices</h2>
+        <p>Transparent investment options tailored for your specific project scope.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Tier 1 -->
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <h3>Landing Page</h3>
+            <p>Perfect for portfolios, events, or individual creators.</p>
+            <div class="price-tag">$150 <span>starting</span></div>
+            <ul class="pricing-features">
+              <li>Single Page Architecture</li>
+              <li>Fully Open Source Code</li>
+              <li>Mobile Responsive Design</li>
+              <li>Scroll Animations</li>
+            </ul>
+          </div>
+          <a href="#request" class="btn btn-primary btn-full" style="margin-top: 20px;">Choose Landing</a>
+        </div>
+
+        <!-- Tier 2 (Featured) -->
+        <div class="card featured" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="badge" style="margin-bottom: 10px;">Most Popular</div>
+            <h3>Custom Business Site</h3>
+            <p>Ideal for startups, agencies, and growing businesses.</p>
+            <div class="price-tag">$400 <span>starting</span></div>
+            <ul class="pricing-features">
+              <li>Up to 5 Custom Pages</li>
+              <li>Open Source Repository</li>
+              <li>Contact Form Integration</li>
+              <li>SEO & Performance Optimized</li>
+            </ul>
+          </div>
+          <a href="#request" class="btn btn-primary btn-full" style="margin-top: 20px;">Choose Business</a>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <h3>Bespoke Web App</h3>
+            <p>Advanced custom functionality, dashboards, and integrations.</p>
+            <div class="price-tag">$900+ <span>starting</span></div>
+            <ul class="pricing-features">
+              <li>Full Web Application</li>
+              <li>Custom Database/API Wiring</li>
+              <li>Complete Source Ownership</li>
+              <li>Priority Engineering Support</li>
+            </ul>
+          </div>
+          <a href="#request" class="btn btn-primary btn-full" style="margin-top: 20px;">Choose Bespoke</a>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- Section 4: Project Request Form -->
+  <section id="request" class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Request a Custom Website</h2>
+        <p>Tell us about your project and we’ll get back to you to start crafting your site.</p>
+      </div>
+
+      <div class="htp" data-aos="fade-up" data-aos-duration="1000">
+        <div class="badge">--Quantum Craft Version 4.56--</div>
+      </div>
+
       <div class="form-container" data-aos="zoom-in" data-aos-duration="800">
         <!-- Web3Forms Integration with AJAX Handling -->
         <form id="websiteRequestForm">
@@ -499,6 +616,17 @@
           <div class="form-group">
             <label for="phone">Phone Number <span class="optional">(Optional)</span></label>
             <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" />
+          </div>
+
+          <!-- Project Tier / Package Selection -->
+          <div class="form-group">
+            <label for="projectTier">Selected Package <span class="optional">(Optional)</span></label>
+            <select id="projectTier" name="package">
+              <option value="Not Specified">Select a starting package...</option>
+              <option value="Landing Page ($150 starting)">Landing Page ($150 starting)</option>
+              <option value="Custom Business Site ($400 starting)">Custom Business Site ($400 starting)</option>
+              <option value="Bespoke Web App ($900+ starting)">Bespoke Web App ($900+ starting)</option>
+            </select>
           </div>
 
           <!-- Additional Information (Optional) -->
@@ -539,7 +667,7 @@
         offset: 80
       });
 
-      // Handle Form Submission smoothly via JavaScript so user gets instant feedback
+      // Handle Form Submission smoothly via JavaScript
       const form = document.getElementById('websiteRequestForm');
       const successDiv = document.getElementById('formSuccess');
       const submitBtn = document.getElementById('submitBtn');
