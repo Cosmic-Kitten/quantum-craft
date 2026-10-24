@@ -129,6 +129,17 @@
       background-color: #2ea043;
     }
 
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(88, 166, 255, 0.1);
+      border-color: var(--primary);
+    }
+
     .btn-large {
       padding: 15px 30px;
       font-size: 1rem;
@@ -207,7 +218,7 @@
       margin: 0 auto 30px;
     }
 
-    /* --- Cards & Pricing --- */
+    /* --- Cards & Ecosystem --- */
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
@@ -550,6 +561,7 @@
       justify-content: center;
       gap: 24px;
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
 
     .footer-links a {
@@ -576,11 +588,10 @@
     <div class="container nav-container">
       <a href="#" class="brand-logo">Quantum<span>Craft</span></a>
       <ul class="nav-links">
+        <li><a href="#ecosystem">Ecosystem</a></li>
         <li><a href="#how-it-works">How We Work</a></li>
-        <li><a href="#open-source">Open Source</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#calculator">Calculator</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#request" class="btn btn-primary">Request Website</a></li>
       </ul>
@@ -597,8 +608,40 @@
     </div>
   </header>
 
+  <!-- Section: Quantum Ecosystem Explorer -->
+  <section id="ecosystem" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Quantum Ecosystem</h2>
+        <p>Explore live apps, studios, and interactive projects built under the Quantum brand.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <!-- Project 1 -->
+        <div class="card" data-aos="fade-right" data-aos-delay="100">
+          <div>
+            <div class="badge">Main Hub</div>
+            <h3>Quantum Studios</h3>
+            <p style="margin-bottom: 20px;">The official umbrella organization and primary landing hub for all open-source web experiments, engineering logs, and bespoke client portals.</p>
+          </div>
+          <a href="https://quantumstudios.vercel.app" target="_blank" class="btn btn-outline btn-full">Explore Quantum Studios ↗</a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card" data-aos="fade-left" data-aos-delay="200">
+          <div>
+            <div class="badge" style="background-color: rgba(35, 134, 54, 0.15); color: #2ea043; border-color: rgba(35, 134, 54, 0.3);">Mini App / Game</div>
+            <h3>Quantum Tetris</h3>
+            <p style="margin-bottom: 20px;">A sleek, high-performance browser-based puzzle game engineered with custom logic loops, responsive controls, and smooth styling.</p>
+          </div>
+          <a href="https://tetris-sable-mu.vercel.app" target="_blank" class="btn btn-outline btn-full">Play Quantum Tetris ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Section 1: How We Work -->
-  <section id="how-it-works" class="section">
+  <section id="how-it-works" class="section section-alt">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>How We Work</h2>
@@ -632,7 +675,7 @@
   </section>
 
   <!-- Section 2: Open Source Philosophy -->
-  <section id="open-source" class="section section-alt">
+  <section id="open-source" class="section">
     <div class="container">
       <div class="grid grid-2">
         <div data-aos="fade-right">
@@ -668,7 +711,7 @@
   </section>
 
   <!-- Section 3: Starting Prices & Tiers -->
-  <section id="pricing" class="section">
+  <section id="pricing" class="section section-alt">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Starting Prices</h2>
@@ -726,7 +769,7 @@
   </section>
 
   <!-- Section 4: Interactive Quote Calculator -->
-  <section id="calculator" class="section section-alt">
+  <section id="calculator" class="section">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Estimate Your Project</h2>
@@ -761,7 +804,7 @@
   </section>
 
   <!-- Section 5: Client Testimonials -->
-  <section id="testimonials" class="section">
+  <section id="testimonials" class="section section-alt">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Client Feedback</h2>
@@ -778,28 +821,4 @@
           <div class="testimonial-author">Sarah Jenkins <span>CTO, Apex Metrics</span></div>
         </div>
         <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-          <p class="testimonial-text">"The scroll animations and sleek dark mode aesthetic completely elevated our brand presentation. Highly recommended!"</p>
-          <div class="testimonial-author">Marcus Vance <span>Lead Designer, Vanguard</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 6: FAQ Accordion -->
-  <section id="faq" class="section section-alt">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <h2>Frequently Asked Questions</h2>
-        <p>Everything you need to know about building with Quantum Studios.</p>
-      </div>
-
-      <div class="faq-container">
-        <div class="faq-item" data-aos="fade-up">
-          <div class="faq-question">What does "Open Source First" mean for my website? <span class="faq-arrow">+</span></div>
-          <div class="faq-answer">It means you own 100% of the code. We build your site in a clean, transparent repository structure without proprietary page-builder lock-ins, giving you complete freedom to host, fork, or modify your application whenever you choose.</div>
-        </div>
-        <div class="faq-item" data-aos="fade-up">
-          <div class="faq-question">How long does a custom build typically take? <span class="faq-arrow">+</span></div>
-          <div class="faq-answer">Landing pages are usually delivered within 3 to 5 business days. Full multi-page business sites take around 1 to 2 weeks, depending on asset availability and specific design requirements.</div>
-        </div>
-        <div class="faq-item" data
+          <p class="testimonial-text">"The scroll animations and sleek dark mode aesthetic completely elevated our brand
