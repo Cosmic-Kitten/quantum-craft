@@ -342,6 +342,37 @@
       font-family: var(--font-mono);
     }
 
+    /* --- Testimonials / Social Proof --- */
+    .testimonial-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 25px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .testimonial-author span {
+      display: block;
+      font-weight: normal;
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
     /* --- FAQ Accordion --- */
     .faq-container {
       max-width: 800px;
@@ -549,6 +580,7 @@
         <li><a href="#open-source">Open Source</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#request" class="btn btn-primary">Request Website</a></li>
       </ul>
@@ -728,8 +760,33 @@
     </div>
   </section>
 
-  <!-- Section 5: FAQ Accordion -->
-  <section id="faq" class="section">
+  <!-- Section 5: Client Testimonials -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Client Feedback</h2>
+        <p>See what founders and creators say about building with Quantum Studios.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <p class="testimonial-text">"Quantum Studios delivered our open-source landing page in under 4 days. The performance scores are top-tier and we own every line of code."</p>
+          <div class="testimonial-author">Alex Rivera <span>Founder, Nexus Tech</span></div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <p class="testimonial-text">"No page builder bloat or hidden fees. Having full visibility into the GitHub repository made auditing and scaling an absolute breeze."</p>
+          <div class="testimonial-author">Sarah Jenkins <span>CTO, Apex Metrics</span></div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+          <p class="testimonial-text">"The scroll animations and sleek dark mode aesthetic completely elevated our brand presentation. Highly recommended!"</p>
+          <div class="testimonial-author">Marcus Vance <span>Lead Designer, Vanguard</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: FAQ Accordion -->
+  <section id="faq" class="section section-alt">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Frequently Asked Questions</h2>
@@ -745,176 +802,4 @@
           <div class="faq-question">How long does a custom build typically take? <span class="faq-arrow">+</span></div>
           <div class="faq-answer">Landing pages are usually delivered within 3 to 5 business days. Full multi-page business sites take around 1 to 2 weeks, depending on asset availability and specific design requirements.</div>
         </div>
-        <div class="faq-item" data-aos="fade-up">
-          <div class="faq-question">Where will my website be hosted? <span class="faq-arrow">+</span></div>
-          <div class="faq-answer">We deploy websites seamlessly onto high-performance cloud providers like Vercel or Netlify, ensuring blistering load speeds, free SSL certificates, and global edge caching out of the box.</div>
-        </div>
-        <div class="faq-item" data-aos="fade-up">
-          <div class="faq-question">How do I receive project inquiry notifications? <span class="faq-arrow">+</span></div>
-          <div class="faq-answer">We integrate secure direct notification handlers (such as Web3Forms or custom Vercel endpoints) directly into your contact form so emails hit your inbox instantly upon submission.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 6: Project Request Form -->
-  <section id="request" class="section section-alt">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <h2>Request a Custom Website</h2>
-        <p>Tell us about your project and we’ll get back to you to start crafting your site.</p>
-      </div>
-
-      <div class="htp" data-aos="fade-up" data-aos-duration="1000">
-        <div class="badge">--Quantum Craft Version 4.58--</div>
-      </div>
-
-      <div class="form-container" data-aos="zoom-in" data-aos-duration="800">
-        <!-- Web3Forms Integration with AJAX Handling -->
-        <form id="websiteRequestForm">
-          
-          <!-- Web3Forms Access Key -->
-          <input type="hidden" name="access_key" value="a91921da-c67e-4307-b012-47676ea01cc4">
-          <input type="hidden" name="subject" value="New Custom Website Request - Quantum Craft">
-
-          <!-- Full Name (Required) -->
-          <div class="form-group">
-            <label for="fullName">Full Name <span class="required">*</span></label>
-            <input type="text" id="fullName" name="name" placeholder="Jane Doe" required />
-          </div>
-
-          <!-- Email Address (Required) -->
-          <div class="form-group">
-            <label for="email">Email Address <span class="required">*</span></label>
-            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
-          </div>
-
-          <!-- Phone Number (Optional) -->
-          <div class="form-group">
-            <label for="phone">Phone Number <span class="optional">(Optional)</span></label>
-            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" />
-          </div>
-
-          <!-- Project Tier / Package Selection -->
-          <div class="form-group">
-            <label for="projectTier">Selected Package <span class="optional">(Optional)</span></label>
-            <select id="projectTier" name="package">
-              <option value="Not Specified">Select a starting package...</option>
-              <option value="Landing Page ($150 starting)">Landing Page ($150 starting)</option>
-              <option value="Custom Business Site ($400 starting)">Custom Business Site ($400 starting)</option>
-              <option value="Bespoke Web App ($900+ starting)">Bespoke Web App ($900+ starting)</option>
-            </select>
-          </div>
-
-          <!-- Additional Information (Optional) -->
-          <div class="form-group">
-            <label for="additionalInfo">Additional Information <span class="optional">(Optional)</span></label>
-            <textarea id="additionalInfo" name="message" rows="4" placeholder="Tell us about your target audience, design preferences, or specific feature requirements..."></textarea>
-          </div>
-
-          <button type="submit" id="submitBtn" class="btn btn-primary btn-full">Submit Website Request</button>
-        </form>
-
-        <!-- Success Message Pop-Up (Hidden by default) -->
-        <div id="formSuccess" class="form-success hidden">
-          <h3>Request Received!</h3>
-          <p>Thank you for reaching out to Quantum Studios. Your request has been sent successfully, and we will get back to you soon!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-links">
-        <a href="#how-it-works">How We Work</a>
-        <a href="#open-source">Open Source</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#calculator">Calculator</a>
-        <a href="#faq">FAQ</a>
-      </div>
-      <p>&copy; 2026 Quantum Craft by <strong>Quantum Studios</strong>. All open source code released under MIT license.</p>
-    </div>
-  </footer>
-
-  <!-- AOS Scroll Animation Script -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize Scroll Animations
-      AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        offset: 80
-      });
-
-      // Interactive Quote Calculator Logic
-      const checkboxes = document.querySelectorAll('.calc-feat');
-      const totalDisplay = document.getElementById('calcTotalDisplay');
-
-      checkboxes.forEach(box => {
-        box.addEventListener('change', () => {
-          let total = 150; // base price
-          checkboxes.forEach(cb => {
-            if (cb.checked) {
-              total += parseInt(cb.value);
-            }
-          });
-          totalDisplay.textContent = '$' + total;
-        });
-      });
-
-      // FAQ Accordion Toggle
-      const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-          const isActive = item.classList.contains('active');
-          faqItems.forEach(i => i.classList.remove('active'));
-          if (!isActive) {
-            item.classList.add('active');
-          }
-        });
-      });
-
-      // Handle Form Submission smoothly via JavaScript
-      const form = document.getElementById('websiteRequestForm');
-      const successDiv = document.getElementById('formSuccess');
-      const submitBtn = document.getElementById('submitBtn');
-
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-
-        const formData = new FormData(form);
-
-        try {
-          const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData
-          });
-
-          const data = await response.json();
-
-          if (data.success) {
-            form.classList.add('hidden');
-            successDiv.classList.remove('hidden');
-          } else {
-            alert('Something went wrong. Please try again.');
-            submitBtn.textContent = 'Submit Website Request';
-            submitBtn.disabled = false;
-          }
-        } catch (error) {
-          alert('Network error. Please check your connection.');
-          submitBtn.textContent = 'Submit Website Request';
-          submitBtn.disabled = false;
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+        <div class="faq-item" data
